@@ -23,6 +23,15 @@ git add -A
 git commit -m "%~1"
 git push origin master
 
-echo ✅ All changes pushed with message: "%~1"
+rem echo ✅ All changes pushed with message: "%~1"
+
+
+if %errorlevel%==0 (
+    echo ✅ All changes pushed with message: "%~1"
+    echo 📊 Current status:
+    git status
+) else (
+    echo ❌ Push failed!
+)
 
 rem gitpush "your commit message"
